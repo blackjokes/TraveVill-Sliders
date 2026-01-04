@@ -3,38 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Подключаем библиотеку напрямую через официальные ссылки (исправлено) -->
-  <link rel="stylesheet" href="unpkg.com" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
+
   <style>
-    /* Базовые настройки страницы */
-    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
-    
-    /* Ограничиваем размер слайдера, чтобы он не разваливался */
-    .swiper { 
-      width: 100%; 
-      height: 100vh; 
-      display: block; 
-    }
-    
-    /* Выравниваем картинки внутри слайдов */
-    .swiper-slide { 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      width: 100%; 
-      height: 100%; 
-    }
-    
-    .swiper-slide img { 
-      max-width: 100%; 
-      max-height: 100%; 
-      object-fit: contain; 
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
     }
 
-    /* Настройка цвета стрелок и точек */
-    :root { --swiper-theme-color: #ffffff; --swiper-navigation-size: 30px; }
+    .swiper {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    :root {
+      --swiper-theme-color: #ffffff;
+    }
   </style>
 </head>
+<body>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="TV4-1.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="TV4-2.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="TV4-3.jpg" alt=""></div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.swiper', {
+      loop: true,
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      keyboard: {
+        enabled: true
+      }
+    });
+  </script>
+
+</body>
+</html></head>
 <body>
 
   <div class="swiper">
