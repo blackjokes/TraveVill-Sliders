@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Подключаем стили Swiper -->
+  <!-- ИСПРАВЛЕНО: Полная ссылка на стили Swiper -->
   <link rel="stylesheet" href="cdn.jsdelivr.net" />
   <style>
-    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
     .swiper { width: 100%; height: 100vh; }
     .swiper-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Картинка заполнит область, не растягиваясь */
+      object-fit: contain; /* Изменил на contain, чтобы фото не обрезалось, если оно не в размер экрана */
     }
-    /* Цвет стрелок и точек под ваш вкус */
     :root { --swiper-theme-color: #ffffff; }
   </style>
 </head>
@@ -21,19 +20,33 @@
 
   <div class="swiper">
     <div class="swiper-wrapper">
-      <!-- Добавляйте сколько угодно слайдов -->
-      <div class="swiper-slide"><img src=IMG_20260104_104245_978.jpg alt="Slide 1"></div>
-      <div class="swiper-slide"><img src=IMG_20260101_141726_355.jpg alt="Slide 2"></div>
-      <div class="swiper-slide"><img src=IMG_20251115_124331_926.jpg alt="Slide 3"></div>
+      <!-- ИСПРАВЛЕНО: Добавлены кавычки в src -->
+      <div class="swiper-slide"><img src="IMG_20260104_104245_978.jpg" alt="Slide 1"></div>
+      <div class="swiper-slide"><img src="IMG_20260101_141726_355.jpg" alt="Slide 2"></div>
+      <div class="swiper-slide"><img src="IMG_20251115_124331_926.jpg" alt="Slide 3"></div>
     </div>
     
-    <!-- Кнопки навигации -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
-    
-    <!-- Точки внизу -->
     <div class="swiper-pagination"></div>
   </div>
+
+  <!-- ИСПРАВЛЕНО: Полная ссылка на скрипт Swiper -->
+  <script src="cdn.jsdelivr.net"></script>
+  <script>
+    // Ждем полной загрузки скрипта, прежде чем запускать
+    window.onload = function() {
+      const swiper = new Swiper('.swiper', {
+        loop: true,
+        grabCursor: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        keyboard: { enabled: true },
+      });
+    };
+  </script>
+</body>
+</html>
 
   <!-- Подключаем скрипты Swiper -->
   <script src="cdn.jsdelivr.net"></script>
