@@ -22,6 +22,8 @@
     <div class="swiper-wrapper">
       <!-- ИСПРАВЛЕНО: Добавлены кавычки в src -->
       <div class="swiper-slide"><img src="TV4-1.jpg" alt="Slide 1"></div>
+      <div class="swiper-slide"><img src="TV4-2.jpg" alt="Slide 2"></div>
+      <div class="swiper-slide"><img src="TV4-3.jpg" alt="Slide 3"></div>
     </div>
     
     <div class="swiper-button-next"></div>
@@ -48,14 +50,20 @@
 
   <!-- Подключаем скрипты Swiper -->
   <script src="cdn.jsdelivr.net"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,           // Зацикливание
-      grabCursor: true,      // Курсор-рука на десктопе
+<script>
+  function initSwiper() {
+    new Swiper('.swiper', {
+      loop: true,
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      keyboard: { enabled: true }, // Управление стрелками клавиатуры
     });
-  </script>
+  }
+  // Запуск
+  if (document.readyState === 'complete') {
+    initSwiper();
+  } else {
+    window.addEventListener('load', initSwiper);
+  }
+</script>
 </body>
 </html>
