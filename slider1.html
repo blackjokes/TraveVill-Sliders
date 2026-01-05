@@ -48,7 +48,7 @@
       opacity: 0.85;
       background: rgba(0,0,0,0.5);
       padding: 4px 8px;
-      pointer-events: auto;
+      pointer-events: none;
       border-radius: 4px;
     }
 
@@ -61,7 +61,7 @@
       background: rgba(0, 0, 0, 0.6);
       padding: 4px 8px;
       border-radius: 4px;
-      pointer-events: auto;
+      pointer-events: none;
       z-index: 1000;
     }
 
@@ -114,14 +114,20 @@
   const counter = document.getElementById('counter');
 
   const swiper = new Swiper('#main-swiper', {
-    loop: false,
-    grabCursor: true,
-    on: {
-      slideChange(sw) {
-        counter.textContent = `${sw.activeIndex + 1} / ${totalSlides}`;
-      }
+  loop: false,
+  grabCursor: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  on: {
+    slideChange(sw) {
+      counter.textContent = `${sw.activeIndex + 1} / ${totalSlides}`;
     }
-  });
+  }
+});;
 </script>
 
 </body>
